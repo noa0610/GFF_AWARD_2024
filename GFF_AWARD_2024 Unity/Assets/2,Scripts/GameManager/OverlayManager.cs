@@ -13,6 +13,7 @@ public class OverlayManager : MonoBehaviour
 
     // インスペクターで設定可能なシーン名のリスト
     // シーン名を事前に登録しておき、指定されたシーンのみをオーバーレイ表示する
+    [Header("使用するオーバーレイシーン名をリストに登録")]
     public List<string> overlaySceneNames = new List<string>();
 
     private void Awake()

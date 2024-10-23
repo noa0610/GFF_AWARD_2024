@@ -8,9 +8,14 @@ public class ButtonClickHandler : MonoBehaviour
 {
 
     // シーン名をインスペクターから設定できるようにする
-    public string overlaySceneName;
+    public string overlaySceneName { get; private set; }
+    /* メモ：変数に{ get; private set; }と記述すると、
+            publicでも他スクリプトからは変更不可にできる。
+     　　　  外部のスクリプトからの不要な変更を防ぐために記述する。 */
 
-    // インスペクターでシーンを表示するか非表示にするかを選択できる
+
+    // インスペクターでシーンを表示させる操作にするか非表示にする操作にするかを選択できる
+    [Header("true:指定したオーバーレイシーン読み込み false:指定したオーバーレイシーン削除")]
     public bool showOverlay = true;
 
     // Startメソッドでボタンのクリックイベントを設定する

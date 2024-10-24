@@ -6,7 +6,7 @@ public class TestAddScore : MonoBehaviour
 {
     // スコアを増減するテストプログラム
 
-    public int addscore = 5;
+    public int addscore = 5; // 増減するスコア
     void Start()
     {
         
@@ -14,13 +14,13 @@ public class TestAddScore : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Z)) // スコアを増加
         {
             ScoreManager.instance.AddScore(addscore);
             Debug.Log("{addscore}");
         }
 
-        if(Input.GetKeyDown(KeyCode.X))
+        if(Input.GetKeyDown(KeyCode.X)) // スコアを減少
         {
             ScoreManager.instance.AddScore(-addscore);
             Debug.Log("{-addscore}");

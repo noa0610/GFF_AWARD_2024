@@ -715,6 +715,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491319641}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &493297645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493297647}
+  - component: {fileID: 493297646}
+  m_Layer: 0
+  m_Name: EnemyGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &493297646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493297645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4ec882946225a42ac5507f3e5556d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveInfos:
+  - enemySpawnInfos:
+    - enemyPrefab: {fileID: 0}
+      enemySpawnCount: 0
+      spawnDelay: 0
+      spawnInterval: 0
+      enemySpawnPoint: 0
+    - enemyPrefab: {fileID: 0}
+      enemySpawnCount: 0
+      spawnDelay: 0
+      spawnInterval: 0
+      enemySpawnPoint: 0
+  player: {fileID: 1703880362}
+  spawnDistance: 5
+--- !u!4 &493297647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493297645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2399583, y: -1.8723902, z: 0.94896924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596419860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2458,3 +2516,4 @@ SceneRoots:
   - {fileID: 13535506}
   - {fileID: 994848809}
   - {fileID: 1422174939}
+  - {fileID: 493297647}

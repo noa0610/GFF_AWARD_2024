@@ -10,14 +10,14 @@ public class EnemyGenerator : MonoBehaviour
                 switch文で処理を場合分けしたいときに有効*/
 
         // ランダム、上、下、左、右、左上、左下、右上、右下
-        Random, 
-        Upward_Direction, 
-        Downward_Direction, 
-        Leftward_Direction, 
+        Random,
+        Upward_Direction,
+        Downward_Direction,
+        Leftward_Direction,
         Rightward_Direction,
-        UpLeft_Direction, 
-        UpRight_Direction, 
-        DownLeft_Direction, 
+        UpLeft_Direction,
+        UpRight_Direction,
+        DownLeft_Direction,
         DownRight_Direction
     }
 
@@ -25,19 +25,22 @@ public class EnemyGenerator : MonoBehaviour
     public class EnemySpawnInfo // 敵出現情報
     {
         [Header("敵の種類")]
-        public GameObject enemyPrefab; // 生成する敵のプレハブを決める 
+        [SerializeField] public GameObject enemyPrefab;          // 生成する敵のプレハブを決める 
 
         [Header("敵の数")]
-        public int enemySpawnCount;    // 生成する敵の数を決める
+        [SerializeField]
+        [Range(0,int.MaxValue)] public int enemySpawnCount;      // 生成する敵の数を決める
 
         [Header("出現までの時間")]
-        public float spawnDelay;       // 生成を開始するまでの時間
+        [SerializeField]
+        [Range(0,float.MaxValue)] public float spawnDelay;       // 生成を開始するまでの時間
 
         [Header("生成間隔")]
-        public float spawnInterval;    // 敵の出現間隔
+        [SerializeField]
+        [Range(0,float.MaxValue)] public float spawnInterval;    // 敵の出現間隔
 
         [Header("出現場所")]
-        public EnemySpawnPoint enemySpawnPoint;  // 生成する場所を決める
+        [SerializeField] public EnemySpawnPoint enemySpawnPoint; // 生成する場所を決める
     }
 
     [System.Serializable]
@@ -113,37 +116,38 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
+    // 敵スポーン位置を決めるメソッド
     Vector3 GetSpawnPosition(EnemySpawnPoint spawnPoint)
     {
         Vector3 direction = Vector3.zero;
 
         switch (spawnPoint)
         {
-            case EnemySpawnPoint.Upward_Direction:
+            case EnemySpawnPoint.Upward_Direction:    // 上方向
                 direction = Vector3.up;
                 break;
-            case EnemySpawnPoint.Downward_Direction:
+            case EnemySpawnPoint.Downward_Direction:  // 下方向
                 direction = Vector3.down;
                 break;
-            case EnemySpawnPoint.Leftward_Direction:
+            case EnemySpawnPoint.Leftward_Direction:  // 左方向
                 direction = Vector3.left;
                 break;
-            case EnemySpawnPoint.Rightward_Direction:
+            case EnemySpawnPoint.Rightward_Direction: // 右方向
                 direction = Vector3.right;
                 break;
-            case EnemySpawnPoint.UpLeft_Direction:
+            case EnemySpawnPoint.UpLeft_Direction:    // 左上方向
                 direction = (Vector3.up + Vector3.left).normalized;
                 break;
-            case EnemySpawnPoint.UpRight_Direction:
+            case EnemySpawnPoint.UpRight_Direction:   // 右上方向
                 direction = (Vector3.up + Vector3.right).normalized;
                 break;
-            case EnemySpawnPoint.DownLeft_Direction:
+            case EnemySpawnPoint.DownLeft_Direction:  // 左下方向
                 direction = (Vector3.down + Vector3.left).normalized;
                 break;
-            case EnemySpawnPoint.DownRight_Direction:
+            case EnemySpawnPoint.DownRight_Direction: // 右下方向
                 direction = (Vector3.down + Vector3.right).normalized;
                 break;
-            case EnemySpawnPoint.Random:
+            case EnemySpawnPoint.Random:              // ランダムな方向
             default:
                 direction = Random.insideUnitSphere.normalized;
                 break;

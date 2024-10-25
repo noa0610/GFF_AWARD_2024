@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance; // シングルトンパターン
+    public static ScoreManager instance; // シングルトンパターン
 
     private int score = 0; // スコアを保持する変数
 
     private void Awake()
     {
         // シングルトンインスタンスの設定
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject); // シーンをまたいでも破棄されないようにする
         }
         else

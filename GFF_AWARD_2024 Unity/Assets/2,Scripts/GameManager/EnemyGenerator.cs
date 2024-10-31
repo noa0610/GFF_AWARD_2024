@@ -29,15 +29,15 @@ public class EnemyGenerator : MonoBehaviour
 
         [Header("敵の数")]
         [SerializeField]
-        [Range(0,int.MaxValue)] public int enemySpawnCount;      // 生成する敵の数を決める
+        [Range(0, int.MaxValue)] public int enemySpawnCount;      // 生成する敵の数を決める
 
         [Header("出現までの時間")]
         [SerializeField]
-        [Range(0,float.MaxValue)] public float spawnDelay;       // 生成を開始するまでの時間
+        [Range(0, float.MaxValue)] public float spawnDelay;       // 生成を開始するまでの時間
 
         [Header("生成間隔")]
         [SerializeField]
-        [Range(0,float.MaxValue)] public float spawnInterval;    // 敵の出現間隔
+        [Range(0, float.MaxValue)] public float spawnInterval;    // 敵の出現間隔
 
         [Header("出現場所")]
         [SerializeField] public EnemySpawnPoint enemySpawnPoint; // 生成する場所を決める
@@ -62,6 +62,12 @@ public class EnemyGenerator : MonoBehaviour
 
     void Start()
     {
+        if (waveInfos != null)
+        {
+            Debug.LogWarning("ウェーブ情報の設定がありません");
+            return;
+        }
+
         if (player == null) // プレイヤーオブジェクトが設定されていなければ
         {
             player = GameObject.FindWithTag("Player"); // プレイヤータグを持つオブジェクトを探す
@@ -74,6 +80,7 @@ public class EnemyGenerator : MonoBehaviour
 
         if (player != null) // プレイヤーオブジェクトが設定されているとき
         {
+
             enemySpawnSwitch = true;
             StartCoroutine(StartWave(currentWave)); // 最初のウェーブを開始する
         }
